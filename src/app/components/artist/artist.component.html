@@ -1,0 +1,58 @@
+<app-loading *ngIf="loading"  class=" animated fadeIn" ></app-loading>
+
+<div class="row m-3" *ngIf="!loading" >
+    <div class="col-5">
+        <img [src]="artist.images | noimage" class="img-fluid">
+     
+    </div>
+  
+    <div class="col text-center" routerLinkActive="active">
+  
+      <h3 >{{ artist.name }}</h3>
+      <p>
+  
+
+      </p>
+      <button routtern class="btn btn-secondary" routerLink="/search"> 
+        To return 
+      </button>
+    </div>
+
+  
+  </div>
+<br>
+
+
+<div class="row table-responsive-xl" *ngIf="!loading" >
+  <div class="col">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+              <th >Album</th>
+              <th >Titule</th>
+              <th >Date</th>
+              <th >Play</th>
+            </tr>
+          </thead>
+
+          <tbody>
+              <tr *ngFor="let track of tracks">
+                  <th scope="col">
+                    <img [src]="track.album.images | noimage" class="img-thumb">
+                  </th>
+                  <th >{{ track.album.name }}</th>
+                  <th >{{ track.album.release_date}}</th>
+                  <th >
+
+                     <!-- <iframe [src]="track.uri | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
+                                    <!--<audio [src]="track.preview_url" controls></audio>-->
+                    <iframe [src]=" track.album.uri | domseguro"  width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </th>
+               
+                </tr>
+
+          </tbody>
+
+    </table>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+
+
+
+<div *ngIf="error" class="alert alert-danger animated fadeIn">
+    <h3>ERROR</h3>
+
+    <p>
+       {{ errormensaje }} 
+    </p>
+</div>
+
+<h1 class="text-center" *ngIf="!error">
+   
+
+        <font color="turquoise" >
+            New releases :
+        </font>
+    </h1>
+
+<app-loading *ngIf="loading"  class="m-5 animated fadeIn" ></app-loading>
+
+
+
+<app-tarjetas [items]="newsong" ></app-tarjetas> 
+
+
