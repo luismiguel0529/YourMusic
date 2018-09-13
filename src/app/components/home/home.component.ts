@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ThrowStmt } from '@angular/compiler';
 import { YourmusicService } from '../../services/yourmusic.service';
 
 @Component({

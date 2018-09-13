@@ -23,31 +23,38 @@
 <br>
 
 
-<div class="row table-responsive-xl" *ngIf="!loading" >
+<div class="row table-responsive-sm" *ngIf="!loading" >
   <div class="col">
-    <table class="table">
+    <table class="table text-center">
         <thead class="thead-dark">
             <tr>
               <th >Album</th>
-              <th >Titule</th>
-              <th >Date</th>
-              <th >Play</th>
+             
+             
+              
             </tr>
           </thead>
 
           <tbody>
               <tr *ngFor="let track of tracks">
+                
                   <th scope="col">
-                    <img [src]="track.album.images | noimage" class="img-thumb">
+                    
+                       {{ track.album.name }} <br> <br> 
+
+                      <img [src]="track.album.images | noimage" class="img-thumb"> <br> <br>
+                      {{ track.album.release_date}}  <br>
+                    <iframe [src]=" track.album.uri | domseguro"  width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            
                   </th>
-                  <th >{{ track.album.name }}</th>
-                  <th >{{ track.album.release_date}}</th>
-                  <th >
+                  
+               
+                  
+                 
 
                      <!-- <iframe [src]="track.uri | domseguro" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe> -->
                                     <!--<audio [src]="track.preview_url" controls></audio>-->
-                    <iframe [src]=" track.album.uri | domseguro"  width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                </th>
+               
                
                 </tr>
 

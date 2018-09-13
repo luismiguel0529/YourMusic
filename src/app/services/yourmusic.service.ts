@@ -15,10 +15,9 @@ export class YourmusicService {
 
     const url = `https://api.spotify.com/v1/${ query }`;
     const headers = new HttpHeaders({
-      'Authorization':'Bearer BQBHUS5DPn_NiiRzmHtKZVWwKCHkbbGocFpv_ihJk-XaT1WI_reyYL9h1OkGWFRO9ErNyxL6E2jz0WElHQU'
+      'Authorization':'Bearer BQCvjk6wrwb9n8pwe5STyR6n7SPL8GQpDPPtc-oOd4Y4m-RMFNLyFhjQdyZQLmE0Vf1Q2AFok9zTJQiSxyk'
     });  
     return this._http.get(url,{ headers });
-
 
   }
   getNewReleases(){
@@ -27,30 +26,22 @@ export class YourmusicService {
         'Authorization':'Bearer BQCcMuM-K-tu0k0_uAjJsjYWWt1daWmptj6-pUV1GrdI44sdg5FQ9Yqgs5gxNa4GojifTUPmKx6pdljcI28'
       });  
     */
-
     return this.getQuery('browse/new-releases').pipe(map(data =>
        data['albums'].items
     ));
-
-
     /*
       return this._http.get("https://api.spotify.com/v1/browse/new-releases",{ headers })
       .pipe(map(data =>{ 
         return data['albums'].items;
       }));
       */
-
   }
-
-
   getArtists(termino:string){
-
     /*
     const headers = new HttpHeaders({
       'Authorization':'Bearer BQCcMuM-K-tu0k0_uAjJsjYWWt1daWmptj6-pUV1GrdI44sdg5FQ9Yqgs5gxNa4GojifTUPmKx6pdljcI28'
     });  
   */
-
     return this.getQuery(`search?q=${ termino }&type=artist&limit=15`).pipe(map( data => data['artists'].items ));
 /*
     return this._http.get(`https://api.spotify.com/v1/search?q=${ termino }&type=artist&limit=15`,{ headers })
@@ -60,30 +51,11 @@ export class YourmusicService {
     } ));
 */
   }
-
-
-
   getArtist( id:string){
-
- 
     return this.getQuery(`artists/${ id }`);
-
-   
-
-
   }
-
   getListsong( id:string){
-
- 
-
     return this.getQuery(`artists/${id}/top-tracks?country=US`).pipe(map(data=> data['tracks']))
     //return this.getQuery(`artists/${id}/albums`).pipe(map(data=> data['items']))
-
-   
-   
- 
   }
-
- 
 }
